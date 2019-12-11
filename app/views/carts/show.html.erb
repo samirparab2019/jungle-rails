@@ -4,7 +4,29 @@
     <h1>My Cart</h1>
   </header>
 
-  <div class="panel panel-default items">
+ 
+  <% if enhanced_cart.empty? %>
+
+    <div class="alert-warning">
+      <p>The cart is empty. <%= link_to 'the main page', :root %>.</p>
+    </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= form_tag orders_path do %>
+        <script
+          
+          data-amount="<%= cart_subtotal_cents %>"
+          data-name="Jungle"
+          data-description="Khurram Virani's Jungle Order"
+          data-locale="auto"
+          data-email="kvirani@gmail.com"
+          data-currency="cad">
+        </script>
+      <% end %>
+
+    <% else %>
+    <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -46,7 +68,8 @@
           data-currency="cad">
         </script>
       <% end %>
-    </div>
+    </div>      
   </div>
-
+</div>
+<% end %>
 </section>
