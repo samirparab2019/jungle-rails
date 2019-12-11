@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
+    
 
     if order.valid?
       empty_cart!
