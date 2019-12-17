@@ -23,9 +23,9 @@ RSpec.feature "Visitor click one of the product partials and go to new page", ty
         end
       end
 
+      
       # DEBUG
       save_screenshot
-    
     end
   
 
